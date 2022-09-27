@@ -10,25 +10,25 @@ from lesson01 import task02_histogram as task02
 def negative(image: np.ndarray) -> np.ndarray:
     """Returns the negative of a grayscale image in [0, 255]."""
     # YOUR CODE HERE: You can assume image is of dtype float
-    # ...
+    return 255-image
 
 
 def log_transform(image: np.ndarray) -> np.ndarray:
     """Returns the log transformation of a grayscale image."""
     # YOUR CODE HERE
-    # ...
+    return np.log(1+image)/np.log(256) * 255
 
 
 def exp_transform(image: np.ndarray) -> np.ndarray:
     """Returns the exp transformation of a grayscale image, which should invert the log transformation."""
     # YOUR CODE HERE
-    # ...
+    return np.exp(np.log(256)*image/255)-1
 
 
 def gamma_transform(image: np.ndarray, gamma: float) -> np.ndarray:
     """Returns the gamma transformation of a grayscale image."""
     # YOUR CODE HERE
-    # ...
+    return np.power(image/255, gamma)*255
 
 
 def windowing(image: np.ndarray, lower_threshold: float, upper_threshold: float) -> np.ndarray:
